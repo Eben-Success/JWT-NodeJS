@@ -5,6 +5,8 @@
 // access the dashboard
 
 const login = (req, res) =>{
+    const {username, password} = req.body
+    console.log(username, password);
     res.send('Fake Login/Register/Signup Route')
 }
 
