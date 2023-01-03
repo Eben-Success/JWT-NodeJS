@@ -1,0 +1,1 @@
+const CustomAPIError = require('../errors/custom-error')
