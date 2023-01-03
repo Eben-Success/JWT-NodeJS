@@ -11,6 +11,9 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 app.use(express.static('./public'))
 app.use(express.json());
 
+const mainRouter = require('./routes/main')
+
+app.use('/api/v1', mainRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
