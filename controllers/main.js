@@ -4,7 +4,7 @@
 // setup authentication so only the request with JWT can access the dasboard
 
 const jwt = require('jsonwebtoken')
-// const { BadRequestError } = require('../errors')
+const { BadRequestError } = require('../errors')
 
 const login = async (req, res) => {
   const { username, password } = req.body
