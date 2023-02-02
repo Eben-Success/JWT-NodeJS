@@ -29,7 +29,15 @@ const login = (req, res) =>{
     res.status(200).json({msg:'user created'}, token)
 }
 
-const dashboard = async (req, res) =>{
+const dashboard = async (req, res) =>{ 
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer')){
+        throw new CustomerAPIError('No token Provided', 401) // authentication error
+    }
+
+    const token = authHeader.split(' ')[1]
+    console.log(token);
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
